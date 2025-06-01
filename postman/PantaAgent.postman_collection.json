@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+		"name": "Panta Agent API",
+		"description": "Collection for the Panta Agent API with DeepSeek-R1 integration",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Agent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/agents?name=Agent1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"agents"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Agent1"
+						}
+					]
+				},
+				"description": "Creates a new AI agent with the specified name"
+			}
+		},
+		{
+			"name": "Get All Agents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/agents",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"agents"
+					]
+				},
+				"description": "Retrieves a list of all agents"
+			}
+		},
+		{
+			"name": "Get Agent by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/agents/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"agents",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"description": "ID of the agent"
+						}
+					]
+				},
+				"description": "Retrieves an agent by their unique identifier"
+			}
+		},
+		{
+			"name": "Assign Task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/agents/:id/tasks?task=Analyze this data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"agents",
+						":id",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "task",
+							"value": "Analyze this data"
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"description": "ID of the agent"
+						}
+					]
+				},
+				"description": "Assigns a task to an agent and gets LLM response"
+			}
+		},
+		{
+			"name": "Complete Task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/agents/:id/complete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"agents",
+						":id",
+						"complete"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"description": "ID of the agent"
+						}
+					]
+				},
+				"description": "Marks the current task of an agent as complete"
+			}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+} 
